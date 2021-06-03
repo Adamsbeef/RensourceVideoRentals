@@ -92,7 +92,7 @@ public class VideoServiceImpl implements VideosService {
         Video video = repository.findById(videoId).orElseThrow((() -> new NotFoundException(messageHelperService.getMessage("video.not.exist"))));
         Double rentFee = getRentFee(rentDuration, video);
         logRentRequest(userName, video, rentFee);
-        return new DataResponse(true, "Renting this video will cost you " + rentFee + " Birrs");
+        return new DataResponse(true, rentFee, "Renting this video will cost you " + rentFee + " Birrs");
     }
 
     private void logRentRequest(String userName, Video video, Double rentFee) {
@@ -100,7 +100,7 @@ public class VideoServiceImpl implements VideosService {
         rentRequestRepository.save(request);
     }
 
-    private Double getRentFee(Integer rentDuration, Video video) {
+    public Double getRentFee(Integer rentDuration, Video video) {
         Double amount = 0d;
         VideoTypeCategory category = video.getVideoType().getCategory();
         switch (category) {

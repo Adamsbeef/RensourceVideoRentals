@@ -28,6 +28,12 @@ public class DataResponse<M> {
         this.addMessage("Request was successful");
     }
 
+    public DataResponse(boolean valid, M data,String message) {
+        this.valid = valid;
+        this.data = data;
+        this.addMessage(message);
+    }
+
 
     public final void addMessage(Message msg) {
         if (msg != null) {
