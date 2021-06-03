@@ -113,14 +113,14 @@ class VideoControllerTest {
     @DisplayName("GET /rent-video correct details")
     void testRentVideo() throws Exception {
 
-        doReturn(new DataResponse<>(true, "")).when(videosService).rentVideo(any(), any(), any());
-        mockMvc.perform(get("/api/v1/list-videos").contentType(MediaType.APPLICATION_JSON).param("userName", "Mike").param("rentDuration", "5").param("videoId","1"))
+        doReturn(new DataResponse<>(true,5,"Renting this video will cost you 5 Birrs" )).when(videosService).rentVideo(any(), any(), any());
+        mockMvc.perform(get("/api/v1/rent-video").contentType(MediaType.APPLICATION_JSON).param("userName", "Mike").param("rentDuration", "5").param("videoId","1"))
 
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
 
-                .andExpect(jsonPath("$.data", Matchers.not(emptyArray())))
-                .andExpect(jsonPath("$.data", Matchers.hasSize(1)));
+                .andExpect(jsonPath("$.data", Matchers.is(5)))
+                .andExpect(jsonPath("$.data", Matchers.notNullValue()));
 
     }
 
