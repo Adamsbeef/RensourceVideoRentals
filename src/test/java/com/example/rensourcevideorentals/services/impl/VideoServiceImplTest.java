@@ -133,7 +133,6 @@ class VideoServiceImplTest {
 
     private Date get3yearsAgo() {
         Calendar cal = Calendar.getInstance();
-        Date today = cal.getTime();
         cal.add(Calendar.YEAR, -3);
         Date threeYearsAgo = cal.getTime();
         return threeYearsAgo;
