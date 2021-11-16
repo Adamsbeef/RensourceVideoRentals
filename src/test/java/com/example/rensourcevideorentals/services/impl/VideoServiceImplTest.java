@@ -12,7 +12,6 @@ import com.example.rensourcevideorentals.exceptions.NotFoundException;
 import com.example.rensourcevideorentals.repositories.RentRequestRepository;
 import com.example.rensourcevideorentals.repositories.VideosRepository;
 import com.example.rensourcevideorentals.services.VideosService;
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -135,7 +134,6 @@ class VideoServiceImplTest {
     private Date get3yearsAgo() {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.YEAR, -3);
-        Date threeYearsAgo = cal.getTime();
-        return threeYearsAgo;
+        return cal.getTime();
     }
 }
