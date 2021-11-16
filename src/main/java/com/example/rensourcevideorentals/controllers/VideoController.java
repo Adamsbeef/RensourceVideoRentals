@@ -6,12 +6,14 @@ import com.example.rensourcevideorentals.services.VideosService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
+import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import static com.example.rensourcevideorentals.setup.Constants.API;
 import static com.example.rensourcevideorentals.setup.Constants.VERSION;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping(path = API)
 
@@ -22,10 +24,6 @@ import static com.example.rensourcevideorentals.setup.Constants.VERSION;
 public class VideoController {
 
     private final VideosService videosService;
-
-    public VideoController(VideosService videosService) {
-        this.videosService = videosService;
-    }
 
     @PostMapping(VERSION + "create-video")
     public DataResponse createVideo(@RequestBody VideoDto request) {

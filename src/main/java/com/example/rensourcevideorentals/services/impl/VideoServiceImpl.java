@@ -1,6 +1,5 @@
 package com.example.rensourcevideorentals.services.impl;
 
-import com.example.rensourcevideorentals.setup.MessageHelperService;
 import com.example.rensourcevideorentals.dtos.VideoDto;
 import com.example.rensourcevideorentals.dtos.VideoListing;
 import com.example.rensourcevideorentals.dtos.responseBody.DataResponse;
@@ -13,8 +12,9 @@ import com.example.rensourcevideorentals.exceptions.ValidationException;
 import com.example.rensourcevideorentals.repositories.RentRequestRepository;
 import com.example.rensourcevideorentals.repositories.VideosRepository;
 import com.example.rensourcevideorentals.services.VideosService;
+import com.example.rensourcevideorentals.setup.MessageHelperService;
+import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -26,22 +26,18 @@ import java.util.Locale;
 
 import static java.util.Calendar.*;
 
+@AllArgsConstructor
 @Service
 public class VideoServiceImpl implements VideosService {
 
     private final VideosRepository repository;
 
-    @Autowired
-    private RentRequestRepository rentRequestRepository;
+    private final RentRequestRepository rentRequestRepository;
 
     private final MessageHelperService messageHelperService;
 
-    ModelMapper mapper = new ModelMapper();
+    private final ModelMapper mapper;
 
-    public VideoServiceImpl(VideosRepository repository, MessageHelperService messageHelperService) {
-        this.repository = repository;
-        this.messageHelperService = messageHelperService;
-    }
 
 
     @Override
