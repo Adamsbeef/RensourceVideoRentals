@@ -2,9 +2,7 @@ package com.example.rensourcevideorentals.services;
 
 import com.example.rensourcevideorentals.dtos.VideoDto;
 import com.example.rensourcevideorentals.dtos.responseBody.DataResponse;
-import org.springframework.stereotype.Service;
 
-@Service
 public interface VideosService {
 
     DataResponse saveVideo(VideoDto videoDto);

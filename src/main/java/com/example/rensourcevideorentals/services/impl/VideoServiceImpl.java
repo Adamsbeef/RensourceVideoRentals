@@ -13,7 +13,7 @@ import com.example.rensourcevideorentals.repositories.RentRequestRepository;
 import com.example.rensourcevideorentals.repositories.VideosRepository;
 import com.example.rensourcevideorentals.services.VideosService;
 import com.example.rensourcevideorentals.setup.MessageHelperService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +26,7 @@ import java.util.Locale;
 
 import static java.util.Calendar.*;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class VideoServiceImpl implements VideosService {
 
@@ -36,9 +36,7 @@ public class VideoServiceImpl implements VideosService {
 
     private final MessageHelperService messageHelperService;
 
-    private final ModelMapper mapper;
-
-
+    private final ModelMapper mapper = new ModelMapper();
 
     @Override
     public DataResponse<Video> saveVideo(VideoDto videoDto) {

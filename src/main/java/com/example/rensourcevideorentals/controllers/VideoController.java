@@ -7,7 +7,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 import lombok.AllArgsConstructor;
-import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import static com.example.rensourcevideorentals.setup.Constants.API;
